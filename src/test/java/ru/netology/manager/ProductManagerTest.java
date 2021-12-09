@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
     ProductManager manager = new ProductManager(new ProductRepository());
-    private Book first = new Book(70, "Евгений Онегин", 520, "Александр Пушкин");
-    private Book third = new Book(71, "Galaxy A10", 500, "Samsung Electronics");
-    private Book fifth = new Book(72, "Капитанская дочка", 430, "Александр Пушкин");
-    private Book sixth = new Book(73, "Samsung", 500, "Samsung Electronics");
-    private Book eighth = new Book(74, "Война и мир", 800, "Лев Толстой");
-    private Smartphone forth = new Smartphone(300, "Galaxy A10", 10000,"Samsung");
-    private Smartphone second = new Smartphone(301, "Galaxy A10", 8000,"Samsung");
-    private Smartphone seventh = new Smartphone(302, "3910", 1000,"Siemense");
+    private Book first = new Book(88, "Евгений Онегин", 320, "Евгения Некрасова");
+    private Book third = new Book(89, "Galaxy A10", 500, "Peter Pan");
+    private Book fifth = new Book(90, "Дом вверх дном", 430, "Евгения Некрасова");
+    private Book sixth = new Book(91, "Samsung", 500, "Peter Pan");
+    private Book eighth = new Book(92, "Дом", 800, "Иван Бунин");
+    private Smartphone forth = new Smartphone(321, "Galaxy A10", 10000,"Samsung");
+    private Smartphone second = new Smartphone(123, "Galaxy A10", 8000,"Samsung");
+    private Smartphone seventh = new Smartphone(231, "3310", 1000,"Nokia");
 
     @BeforeEach
     public void setUp() {
@@ -51,7 +51,7 @@ class ProductManagerTest {
     @Test
     public void shouldSearchByAuthorIfOne() {
         Product[] expected = {eighth};
-        Product[] actual = manager.searchBy("Лев Толстой");
+        Product[] actual = manager.searchBy("Иван Бунин");
 
         assertArrayEquals(expected, actual);
     }
@@ -59,7 +59,7 @@ class ProductManagerTest {
     @Test
     public void shouldSearchByAuthorIfSame() {
         Product[] expected = {first, fifth};
-        Product[] actual = manager.searchBy("Александр Пушкин");
+        Product[] actual = manager.searchBy("Евгения Некрасова");
 
         assertArrayEquals(expected, actual);
     }
@@ -67,7 +67,7 @@ class ProductManagerTest {
     @Test
     public void shouldSearchByProductionIfOne() {
         Product[] expected = {seventh};
-        Product[] actual = manager.searchBy("Siemense");
+        Product[] actual = manager.searchBy("Nokia");
 
         assertArrayEquals(expected, actual);
     }
@@ -83,7 +83,7 @@ class ProductManagerTest {
     @Test
     public void shouldSearchByFictionName() {
         Product[] expected = {};
-        Product[] actual = manager.searchBy("iPhone 11");
+        Product[] actual = manager.searchBy("iPhone 12");
 
         assertArrayEquals(expected, actual);
     }
